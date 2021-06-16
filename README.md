@@ -12,5 +12,6 @@ In Future i will add feature which search things entered by the user using a sea
 
 This A.I. is my first mega project i have created. In future i will also create many games but first i want to work on this Virtual Assistant.
 
+What's New: Now the Assistant will ask you for the confirmation for the content you have spoken for the mail. If you will say yes then the email sending process will continue and if you say no then ZIRA will ask you to input the content you want to send to the sender. 
 
 Thank You ! 
