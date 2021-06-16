@@ -56,7 +56,7 @@ def takeCommand():
         print(f'User said: {query}\n')
 
     except Exception as e:
-        # print(e)
+        print(e)
         print("Sorry Can't recognize you. Can you please say it again.")
         speak("Sorry Can't recognize you. Can you please say it again.")
         return "None"
@@ -66,9 +66,20 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
+    speak("Please enter your email address and password for logging in...")
     server.login(input("Enter your email address : "), input("Enter your email password: "))
+    speak("Enter your email address for sending the mail...")
     server.sendmail(input("Please enter your email address again: "), to, content)
     server.close()
+    speak("Email has been sent to the receiver!")
+
+def confEmail():
+    a = takeCommand()
+    if a == "yes":
+        sendEmail(to, content)
+
+    elif a=="no":
+        input("Enter what to write in the email: \n")
 
 if __name__ == "__main__":
     wishMe()
@@ -94,18 +105,15 @@ if __name__ == "__main__":
             speak('opening google...')
             wb.open('https://www.google.com/webhp')
              
-
-        elif 'open stack overflow python' and 'open stack overflow' and 'openstackoverflow' and 'openstack overflow' in query:
+        elif 'open stack overflow' in query:
             print("opening stackoverflow...")
             speak('opening stackoverflow in browser')
             wb.open('https://stackoverflow.com/questions/tagged/python')
-             
 
         elif 'open gmail' in query:
             print('opening gmail')
             speak('opening gmail')
             wb.open('https://mail.google.com/mail/u/0/#inbox')
-             
         
         elif 'play music' and 'play songs' in query:
             try:
@@ -119,20 +127,17 @@ if __name__ == "__main__":
 
             except Exception as e:
                 print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
-             
 
         elif 'current date and time' in query:
             current_time = datetime.datetime.now().strftime("%A, %d %B, %Y  %H:%M:%S")
             print(f"Today's day date and time is {current_time}")
             speak(f"Today's day date and time is {current_time}")
-            
         
         elif 'open visual studio code' in query:
             print("Opening visual studio code...")
             speak("Opening visual studio code...")
             code_path = "D:\\Installed PROGRAMS\\VS code\\Microsoft VS Code\\Code.exe"
             os.startfile(code_path)
-             
         
         elif 'open powershell' in query:
             print("Opening PowerShell window here...")
@@ -140,19 +145,20 @@ if __name__ == "__main__":
             path = '"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"'
             os.startfile(path)
 
-        elif 'what is your name' in query:
-            print("Hi! I am ZIRA. Your A.I. virtual Desktop Assistant. How can i help you ?")
-            speak("Hi! I am ZIRA. Your AI virtual desktop assistant. How can i help you ?")
+        elif 'your name' in query:
+            print("Hi! My name is ZIRA. I am your A.I. virtual Desktop Assistant. How can i help you ?")
+            speak("Hi! My name is ZIRA. I am your AI virtual desktop assistant. How can i help you ?")
 
         elif 'email' in query:
             try:
-                print("What should i write in the email ?")
-                speak("What should i write in the email ?")
-                content = takeCommand()
+                speak("Enter the email address of your receiver: ")
                 to = input("Enter the email address of your receiver: ")
-                print(content)
-                speak(f"{content}, This is your content: ")
-                sendEmail(to, content)
+                speak("what to write in the in the email")
+                content = takeCommand()
+                print(f"{content}, \n This is your content")
+                speak(f"{content}, This is your content ")
+                speak("Is it correct say yes or no")
+                confEmail()
             
             except Exception as e:
                 print(f"Sorry, I am unable to send the mail due to an error",
@@ -170,8 +176,8 @@ if __name__ == "__main__":
             "What is your name ?","\n",
             "Play songs or Play music","\n",
             "Open Powershell","\n",
-            "Print system properties","\n",
-            "Print machine information")
+            "Print machine information","\n",
+            "Print system properties")
             speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Or What is your name! Also You can say Play songs or Play music... If you are using powershell you can also say open powershell; For your machine you can say print machine information also you can say print system properties for system information.")
 
         elif 'quit' in query:
@@ -190,7 +196,7 @@ if __name__ == "__main__":
             os.startfile(browser_path)
         
         elif 'system properties' in query:
-            print("Below is the information about your os...")
+            print("Below are the information about your os...")
             speak("Below are the information about your operating system..")
             mysystem = platform.uname()
             print(f"System: {mysystem.system}")
@@ -210,4 +216,8 @@ if __name__ == "__main__":
             print(f"Name: {myMachine.Name}")
             print(f"NumberOfProcessors: {myMachine.NumberOfProcessors}")
             print(f"SystemFamily: {myMachine.SystemFamily}")
-            
+
+        elif 'thank you' in query:
+            print("Your most welcome !  You can ask me anything, anytime and anywhere.")
+            speak("Your most welcome !  You can ask me anything, anytime and anywhere.")
+            exit()
