@@ -8,8 +8,10 @@ import os
 import smtplib
 import platform
 import wmi
-
-
+import pyjokes
+import time
+import requests
+import socket
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -81,6 +83,25 @@ def confEmail():
     elif a=="no":
         input("Enter what to write in the email: \n")
 
+def feeling_bored():
+    speak("Do you want to listen some jokes or some music ?")
+    print("say I want some jokes if you want to listen jokes or say I want music for music else say no")
+    b = takeCommand()
+    if b == "I want jokes":
+        speak("Here is the joke that i found ?")
+        jo = pyjokes.get_joke(language='en', category='all')
+        print(jo)
+        speak(jo)
+
+    elif b == "I want music":
+        print('Playing songs on groove music...')
+        speak('Playing songs on groove music...')
+        path = 'D:\\Gaana\\Favourite songs'
+        song = os.listdir(path)
+        rand_No = random.randint(0, 55)
+        os.startfile(os.path.join(path, song[rand_No]))
+
+
 if __name__ == "__main__":
     wishMe()
     while True:
@@ -121,7 +142,6 @@ if __name__ == "__main__":
                 speak('Playing songs on groove music...')
                 path = 'D:\\Gaana\\Favourite songs'
                 song = os.listdir(path)
-                print(song)
                 rand_No = random.randint(0, 55)
                 os.startfile(os.path.join(path, song[rand_No]))
 
@@ -180,11 +200,6 @@ if __name__ == "__main__":
             "Print system properties")
             speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Or What is your name! Also You can say Play songs or Play music... If you are using powershell you can also say open powershell; For your machine you can say print machine information also you can say print system properties for system information.")
 
-        elif 'quit' in query:
-            print("Thanks for interacting with me. Have a energetic and wonderful day.")
-            speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
-            exit()
-
         elif 'my name' in query:
             print(f"Your name is {myName}")
             speak(f"Your name is {myName}")
@@ -218,6 +233,22 @@ if __name__ == "__main__":
             print(f"SystemFamily: {myMachine.SystemFamily}")
 
         elif 'thank you' in query:
-            print("Your most welcome !  You can ask me anything, anytime and anywhere.")
-            speak("Your most welcome !  You can ask me anything, anytime and anywhere.")
+            print("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon. Bye!")
+            speak("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon. Bye")
+            exit()
+
+        elif 'bored' in query:
+            feeling_bored()
+
+        elif 'ip' in query:
+            public_ip = requests.get("https://api.ipify.org").text
+            hostname = socket.gethostname()
+            local_ip = socket.gethostbyname(hostname)
+            print(f"Your public ip address is {public_ip} and your device host name is {hostname} with a local ip {local_ip}")
+            speak("Your public ip address is..... and your device host name is.... with a local ip....")
+            time.sleep(5)
+
+        elif 'quit' in query:
+            print("Thanks for interacting with me. Have a energetic and wonderful day.")
+            speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
             exit()
