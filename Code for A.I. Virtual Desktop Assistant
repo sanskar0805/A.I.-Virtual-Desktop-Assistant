@@ -82,6 +82,7 @@ def confEmail():
 
     elif a=="no":
         input("Enter what to write in the email: \n")
+        sendEmail(to, content)
 
 def feeling_bored():
     speak("Do you want to listen some jokes or some music ?")
