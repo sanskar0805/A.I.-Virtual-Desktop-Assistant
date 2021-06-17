@@ -14,4 +14,6 @@ This A.I. is my first mega project i have created. In future i will also create 
 
 What's New: Now the Assistant will ask you for the confirmation for the content you have spoken for the mail. If you will say yes then the email sending process will continue and if you say no then ZIRA will ask you to input the content you want to send to the sender. 
 
+What's New :  I have updated my assistant now you can find your public and local ip address using it. If you are feeling bored, just say "I am feeling bored" to ZIRA and it will make you happy by asking if you want to listen jokes or music.
+
 Thank You ! 
