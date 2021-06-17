@@ -237,6 +237,12 @@ if __name__ == "__main__":
             speak("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon. Bye")
             exit()
 
+        elif 'joke' in query:
+            speak("Here is the joke that i found ?")
+            jo = pyjokes.get_joke(language='en', category='all')
+            print(jo)
+            speak(jo)
+
         elif 'bored' in query:
             feeling_bored()
 
