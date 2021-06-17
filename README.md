@@ -16,4 +16,6 @@ What's New: Now the Assistant will ask you for the confirmation for the content 
 
 What's New :  I have updated my assistant now you can find your public and local ip address using it. If you are feeling bored, just say "I am feeling bored" to ZIRA and it will make you happy by asking if you want to listen jokes or music.
 
+New! :  Now you can confirm the mail before sending. ZIRA will ask you whether to send the email you have spoken or not. If you will say yes then it will continue to the process of sending email. If you will say no, then it will let you write the content of the email.
+
 Thank You ! 
