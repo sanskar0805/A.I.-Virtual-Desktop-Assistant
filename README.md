@@ -12,10 +12,17 @@ In Future i will add feature which search things entered by the user using a sea
 
 This A.I. is my first mega project i have created. In future i will also create many games but first i want to work on this Virtual Assistant.
 
+Updated on :  25-05-21
 What's New: Now the Assistant will ask you for the confirmation for the content you have spoken for the mail. If you will say yes then the email sending process will continue and if you say no then ZIRA will ask you to input the content you want to send to the sender. 
 
+Updated on :  10-06-21
 What's New :  I have updated my assistant now you can find your public and local ip address using it. If you are feeling bored, just say "I am feeling bored" to ZIRA and it will make you happy by asking if you want to listen jokes or music.
 
+Updated on :  015-06-21
 New! :  Now you can confirm the mail before sending. ZIRA will ask you whether to send the email you have spoken or not. If you will say yes then it will continue to the process of sending email. If you will say no, then it will let you write the content of the email.
+
+Updated on :  21-06-21
+New! : Now you can open office applications using ZIRA. You can also open notepad and chrome using ZIRA. Now, the thing which ZIRA cannot do is maintained by herself.
+The BEST Thing Added ! : Now you can shutdown and restart by saying : "shutdown this pc" for shutting down and "restart this pc" for restarting windows.
 
 Thank You ! 
