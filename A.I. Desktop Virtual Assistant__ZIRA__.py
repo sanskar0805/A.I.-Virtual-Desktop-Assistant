@@ -12,6 +12,7 @@ import pyjokes
 import time
 import requests
 import socket
+import subprocess
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -81,9 +82,9 @@ def confEmail():
         sendEmail(to, content)
 
     elif a=="no":
-        input("Enter what to write in the email: \n")
         speak("Then enter what to write in the email ")
-        sendEmail(to, content)
+        c = input("Enter what to write in the email: \n")
+        sendEmail(to, c)
 
 def feeling_bored():
     speak("Do you want to listen some jokes or some music ?")
@@ -110,7 +111,11 @@ if __name__ == "__main__":
         query = takeCommand().lower()
 
         # Logic for executing tasks based on query.
-        if 'wikipedia' in query:
+        if "hello" in query:
+            print("Hi ! What i can do for you ?")
+            speak("Hi ! What i can do for you ?")
+
+        elif 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
             results = wiki.summary(query, sentences=2)
@@ -137,6 +142,17 @@ if __name__ == "__main__":
             print('opening gmail')
             speak('opening gmail')
             wb.open('https://mail.google.com/mail/u/0/#inbox')
+
+        elif 'website' in query:
+            speak("Please enter the url of the website here")
+            try:
+                a = input("Enter the url of the website (For ex. www.youtube.com): ")
+                speak(f"Opening {a}")
+                wb.open(a)
+
+            except Exception as e:
+                print(f"Unable to open the website due to this error {e} \n Please try to solve the error.")
+                speak("Unable to open the website due to the error. Please try to solve the error")
         
         elif 'play music' and 'play songs' in query:
             try:
@@ -177,7 +193,7 @@ if __name__ == "__main__":
                 to = input("Enter the email address of your receiver: ")
                 speak("what to write in the in the email")
                 content = takeCommand()
-                print(f"{content}, \n This is your content")
+                print(content)
                 speak(f"{content}, This is your content ")
                 speak("Is it correct say yes or no")
                 confEmail()
@@ -212,7 +228,7 @@ if __name__ == "__main__":
             browser_path = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
             os.startfile(browser_path)
         
-        elif 'system properties' in query:
+        elif 'system' in query:
             print("Below are the information about your os...")
             speak("Below are the information about your operating system..")
             mysystem = platform.uname()
@@ -223,7 +239,7 @@ if __name__ == "__main__":
             print(f"Machine: {mysystem.machine}")
             print(f"Processor: {mysystem.processor}")
 
-        elif 'machine information' in query:
+        elif 'machine' in query:
             print("Below are the information about your machine....")
             speak("Below are the information about your machine....")
             c = wmi.WMI()   
@@ -260,3 +276,39 @@ if __name__ == "__main__":
             print("Thanks for interacting with me. Have a energetic and wonderful day.")
             speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
             exit()
+
+        elif 'notepad' in query:
+            print('Opening notepad')
+            speak('Opening notepad')
+            os.system('Notepad')
+
+        elif 'word' in query:
+            print("Opening Microsoft word")
+            speak("Opening Microsoft word")
+            os.system('start winword')
+
+        elif 'excel' in query:
+            print("Opening Microsoft excel")
+            speak("Opening Microsoft excel")
+            os.system('start Excel')
+
+        elif 'powerpoint' in query:
+            print("Opening Microsoft powerpoint")
+            speak("Opening Microsoft powerpoint")
+            os.system('start powerpnt')
+
+        elif 'shutdown' in query:
+            print('Shutting down this pc...')
+            speak('Shutting down this pc...')
+            os.system("shutdown /s /t 3")
+            exit()
+
+        elif 'restart' in query:
+            print("Restarting this pc...")
+            speak("Restarting this pc...")
+            os.system("shutdown /r")
+            exit()
+            
+        else: 
+            print("Sorry, but for the time being. I am not equipped to do that.")
+            speak("Sorry, but for the time being. I am not equipped to do that.")
