@@ -12,7 +12,6 @@ import pyjokes
 import time
 import requests
 import socket
-import subprocess
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -149,10 +148,12 @@ if __name__ == "__main__":
                 a = input("Enter the url of the website (For ex. www.youtube.com): ")
                 speak(f"Opening {a}")
                 wb.open(a)
+                time.sleep(3)
 
             except Exception as e:
                 print(f"Unable to open the website due to this error {e} \n Please try to solve the error.")
                 speak("Unable to open the website due to the error. Please try to solve the error")
+                continue
         
         elif 'play music' and 'play songs' in query:
             try:
@@ -217,6 +218,7 @@ if __name__ == "__main__":
             "Print machine information","\n",
             "Print system properties")
             speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Or What is your name! Also You can say Play songs or Play music... If you are using powershell you can also say open powershell; For your machine you can say print machine information also you can say print system properties for system information.")
+            time.sleep(3.5)
 
         elif 'my name' in query:
             print(f"Your name is {myName}")
@@ -227,6 +229,7 @@ if __name__ == "__main__":
             speak("Opening Edge browser....")
             browser_path = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
             os.startfile(browser_path)
+            time.sleep(3)
         
         elif 'system' in query:
             print("Below are the information about your os...")
@@ -238,6 +241,7 @@ if __name__ == "__main__":
             print(f"Version: {mysystem.version}")
             print(f"Machine: {mysystem.machine}")
             print(f"Processor: {mysystem.processor}")
+            time.sleep(5)
 
         elif 'machine' in query:
             print("Below are the information about your machine....")
@@ -249,11 +253,19 @@ if __name__ == "__main__":
             print(f"Name: {myMachine.Name}")
             print(f"NumberOfProcessors: {myMachine.NumberOfProcessors}")
             print(f"SystemFamily: {myMachine.SystemFamily}")
+            time.sleep(5)
 
         elif 'thank you' in query:
-            print("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon. Bye!")
-            speak("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon. Bye")
-            exit()
+            print("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon...")
+            speak("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon...")
+            print("Should I leave ? Say Yes or No.")
+            speak("Should I leave ? Say Yes or No.")
+            a = takeCommand()
+            if a == "yes" or a == "Yes":
+                speak("Ok. See you soon. Bye!")
+                exit()
+            else:
+                continue
 
         elif 'joke' in query:
             speak("Here is the joke that i found ?")
@@ -272,41 +284,45 @@ if __name__ == "__main__":
             speak("Your public ip address is..... and your device host name is.... with a local ip....")
             time.sleep(5)
 
-        elif 'quit' in query:
-            print("Thanks for interacting with me. Have a energetic and wonderful day.")
-            speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
-            exit()
-
         elif 'notepad' in query:
             print('Opening notepad')
             speak('Opening notepad')
             os.system('Notepad')
+            time.sleep(3)
 
         elif 'word' in query:
             print("Opening Microsoft word")
             speak("Opening Microsoft word")
             os.system('start winword')
+            time.sleep(3)
 
         elif 'excel' in query:
             print("Opening Microsoft excel")
             speak("Opening Microsoft excel")
             os.system('start Excel')
+            time.sleep(3)
 
         elif 'powerpoint' in query:
             print("Opening Microsoft powerpoint")
             speak("Opening Microsoft powerpoint")
             os.system('start powerpnt')
+            time.sleep(3)
 
         elif 'shutdown' in query:
             print('Shutting down this pc...')
             speak('Shutting down this pc...')
-            os.system("shutdown /s /t 3")
+            os.system("shutdown /s /t 0")
             exit()
 
         elif 'restart' in query:
             print("Restarting this pc...")
             speak("Restarting this pc...")
-            os.system("shutdown /r")
+            os.system("shutdown /r /t 0")
+            exit()
+
+        elif 'quit' in query:
+            print("Thanks for interacting with me. Have a energetic and wonderful day.")
+            speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
             exit()
             
         else: 
