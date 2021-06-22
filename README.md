@@ -1,5 +1,5 @@
 # A.I.-Virtual-Desktop-Assistant
-My First A.I. Desktop Virtual Assistant ---ZIRA---
+__My First A.I. Desktop Virtual Assistant ---ZIRA---__
 
 
 This A.I. Virtual desktop assistant name is ZIRA. This assistant is created using python which includes all the things needed in this assistant for a simple life. For instance I am
@@ -13,16 +13,20 @@ In Future i will add feature which search things entered by the user using a sea
 This A.I. is my first mega project i have created. In future i will also create many games but first i want to work on this Virtual Assistant.
 
 Updated on :  25-05-21
-What's New: Now the Assistant will ask you for the confirmation for the content you have spoken for the mail. If you will say yes then the email sending process will continue and if you say no then ZIRA will ask you to input the content you want to send to the sender. 
+*What's New: Now the Assistant will ask you for the confirmation for the content you have spoken for the mail. If you will say yes then the email sending process will continue and if you say no then ZIRA will ask you to input the content you want to send to the sender. 
 
 Updated on :  10-06-21
-What's New :  I have updated my assistant now you can find your public and local ip address using it. If you are feeling bored, just say "I am feeling bored" to ZIRA and it will make you happy by asking if you want to listen jokes or music.
+*What's New :  I have updated my assistant now you can find your public and local ip address using it. If you are feeling bored, just say "I am feeling bored" to ZIRA and it will make you happy by asking if you want to listen jokes or music.
 
 Updated on :  015-06-21
-New! :  Now you can confirm the mail before sending. ZIRA will ask you whether to send the email you have spoken or not. If you will say yes then it will continue to the process of sending email. If you will say no, then it will let you write the content of the email.
+*New! :  Now you can confirm the mail before sending. ZIRA will ask you whether to send the email you have spoken or not. If you will say yes then it will continue to the process of sending email. If you will say no, then it will let you write the content of the email.
 
 Updated on :  21-06-21
-New! : Now you can open office applications using ZIRA. You can also open notepad and chrome using ZIRA. Now, the thing which ZIRA cannot do is maintained by herself.
-The BEST Thing Added ! : Now you can shutdown and restart by saying : "shutdown this pc" for shutting down and "restart this pc" for restarting windows.
+*New! : Now you can open office applications using ZIRA. You can also open notepad and chrome using ZIRA. Now, the thing which ZIRA cannot do is maintained by herself.
+__The BEST Thing Added ! : Now you can shutdown and restart by saying : "shutdown this pc" for shutting down and "restart this pc" for restarting windows.
+
+Updated on : 22-06-2021
+New! : Now ZIRA will stop for sometime when the user has asked her to open something. And also new things were added like when you will say "thank you" to ZIRA, before it exit's without asking the user, but now she will ask whether to exit or continue by saying yes or no. Now she will wait after when the user ask her for printing the machine information and in system properties too. 
+__Shut down process has been updated, as when the user asks ZIRA to shut down his machine it takes about 3 seconds to shut down the pc and also in the restart process now the shut down process is done without waiting, it is done in 0 seconds.
 
 Thank You ! 
