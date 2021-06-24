@@ -12,6 +12,7 @@ import pyjokes
 import time
 import requests
 import socket
+import pywhatkit as pwk
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -132,16 +133,26 @@ if __name__ == "__main__":
 
         elif 'wikipedia' in query:
             speak('Searching Wikipedia...')
-            query = query.replace("wikipedia", "")
-            results = wiki.summary(query, sentences=2)
-            speak("According to wikipedia ")
-            print(results)
-            speak(results)
+            try:
+                query = query.replace("wikipedia", "")
+                results = wiki.summary(query, sentences=2)
+                speak("According to wikipedia ")
+                print(results)
+                speak(results)
+
+            except Exception as e:
+                print(f"Sorry, I am unable to complete wikipedia search  due to this error: {e}\n Please try solving the error.")
+                speak("Sorry, I am unable to complete the wikipedia search due to an error; Please try solving the error.")
+                continue
 
         elif 'open youtube' in query:
             print("opening youtube...")
             speak('opening youtube')
             wb.open('https://www.youtube.com/')
+
+        elif "on youtube" in query or "in youtube" in query: 
+            speak("What to play on youtube ?")
+            pwk.playonyt(takeCommand())
 
         elif 'search' in query or 'web' in query:
             print("Please tell what to search on web ?")
@@ -149,13 +160,13 @@ if __name__ == "__main__":
             speak("Opening web search")
             a = takeCommand()
             pwk.search(a)
-
+        
         elif 'open google' in query:
             print("opening google.com...")
             speak('opening google...')
             wb.open('https://www.google.com/webhp')
              
-        elif 'open stack overflow' in query:
+        elif 'open stack overflow' in query or 'open stackoverflow' in query:
             print("opening stackoverflow...")
             speak('opening stackoverflow in browser')
             wb.open('https://stackoverflow.com/questions/tagged/python')
@@ -165,7 +176,7 @@ if __name__ == "__main__":
             speak('opening gmail')
             wb.open('https://mail.google.com/mail/u/0/#inbox')
 
-        elif 'website' in query:
+        elif 'website' in query or 'site' in query:
             speak("Please enter the url of the website here")
             try:
                 a = input("Enter the url of the website (For ex. www.youtube.com): ")
@@ -178,7 +189,7 @@ if __name__ == "__main__":
                 speak("Unable to open the website due to the error. Please try to solve the error")
                 continue
         
-        elif 'play music' and 'play songs' in query:
+        elif 'play music' and 'play songs' in query or 'song' in query:
             try:
                 print('Playing songs on groove music...')
                 speak('Playing songs on groove music...')
@@ -190,18 +201,18 @@ if __name__ == "__main__":
             except Exception as e:
                 print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
 
-        elif 'current date and time' in query:
+        elif 'date' in query or 'time' in query:
             current_time = datetime.datetime.now().strftime("%A, %d %B, %Y  %H:%M:%S")
             print(f"Today's day date and time is {current_time}")
             speak(f"Today's day date and time is {current_time}")
         
-        elif 'open visual studio code' in query:
+        elif 'visual studio code' in query or 'code' in query:
             print("Opening visual studio code...")
             speak("Opening visual studio code...")
             code_path = "D:\\Installed PROGRAMS\\VS code\\Microsoft VS Code\\Code.exe"
             os.startfile(code_path)
         
-        elif 'open powershell' in query:
+        elif 'powershell' in query:
             print("Opening PowerShell window here...")
             speak("Opening PowerShell window (here)...")
             path = '"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"'
@@ -226,6 +237,10 @@ if __name__ == "__main__":
                 print(f"Sorry, I am unable to send the mail due to an error",
                        {e})
                 speak("Sorry! I am unable to send the mail due to an error, Try solving the error.")
+
+        elif "whatsapp message" in query or "message":
+            pwk.sendwhatmsg(str(input("Enter the mobile number of the receiver with country code (+91): ")), str(input("Enter the message to be sent : \n")), int(input("Enter the time hour: ")), int(input("Enter the minutes: ")), int(input("Enter the wait time (2<)")), True)
+
         elif 'my name' in query:
             print(f"Your name is {myName}")
             speak(f"Your name is {myName}")
@@ -326,7 +341,7 @@ if __name__ == "__main__":
             os.system("shutdown /r /t 0")
             exit()
 
-        elif 'quit' in query:
+        elif 'quit' in query or 'exit' in query:
             print("Thanks for interacting with me. Have a energetic and wonderful day.")
             speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
             exit()
