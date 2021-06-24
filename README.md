@@ -35,6 +35,6 @@ New !: Now you can search for anything from ZIRA it will show you the google sea
 __New file !!!!!!!  :  A new file is uploaded "A.I. Desktop Virtual Assistant__ZIRA__ __(New with modes).py"__. This new file is a well organized with modes and just same as the old one. Now the new one contains modes by which you can enter in new modes by saying applications or apps for open app mode, office for open office applications mode, feelings mode for your feelings, web for google search and wikipedia and the system related is separate you don't need to turn on the different mode.
 
 __Updated on : 24-06-2021__
-Changes: Some minor issues has been fixed and "How are you ?" question asked by the user is added.
+Changes: Some minor issues has been fixed and "How are you ?" question asked by the user is added. Youtube search is now available, now you can say what to play on youtube. For example you can say "Play shape of you song on youtube." and 
 
 Thank You ! 
