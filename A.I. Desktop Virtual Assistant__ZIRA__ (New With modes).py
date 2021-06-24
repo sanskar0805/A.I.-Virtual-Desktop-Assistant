@@ -135,6 +135,7 @@ if __name__ == "__main__":
             speak("Which app to open ?")
             while True:
                 inquery1 = takeCommand().lower()
+                print(f"User said: {inquery1}\n")
                 if 'youtube' in inquery1:
                     print("opening youtube...")
                     speak('opening youtube')
@@ -184,6 +185,7 @@ if __name__ == "__main__":
             speak("What to open in office ?")
             while True:
                 inquery2 = takeCommand().lower()
+                print(f"User said: {inquery2}\n")
                 if 'word' in inquery2:
                     print("Opening Microsoft word")
                     speak("Opening Microsoft word")
@@ -216,6 +218,7 @@ if __name__ == "__main__":
             speak("Tell me what to search for ?")
             while True:
                 inquery3 = takeCommand().lower()
+                print(f"User said: {inquery3}\n")
                 if 'wikipedia' in query:
                     speak('Searching Wikipedia...')
                     try:
@@ -259,12 +262,13 @@ if __name__ == "__main__":
                     print("Sorry i am unable to search for or there is an error, Please check your words. May be you are in different mode please exit that by saying exit.")
                     speak("Sorry i am unable to search for or there is an error, Please check your words. May be you are in different mode please exit that by saying exit.")
 
-        elif 'happy' in query:
+        elif 'feelings' in query:
             print("How you are feeling ?")
             speak("How you are feeling ?")
             while True:
                 inquery4 = takeCommand()
-                if 'bored' in query:
+                print(f"User said: {inquery4}\n")
+                if 'bored' in inquery4:
                     feeling_bored()
 
                 elif 'exit' in inquery4:
@@ -351,6 +355,14 @@ if __name__ == "__main__":
             print("Thanks for interacting with me. Have a energetic and wonderful day.")
             speak("Thanks for interacting with me. Have a energetic and wonderful day.")
             exit()
+
+        elif 'how are you' in query:
+            print("I am fine and what about you ?")
+            speak("I am fine and what about you ?")
+            a = takeCommand()
+            if a == "I am fine":
+                print("Ok, That's great.")
+                speak("Ok, That's great.")
 
         else: 
             print("Sorry, but for the time being. I am not equipped to do that.")
