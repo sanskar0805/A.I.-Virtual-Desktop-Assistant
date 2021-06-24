@@ -39,8 +39,8 @@ def wishMe():
     else:
         speak(f"Good evening {myName}.")
 
-    speak("This is Zira . How can I help you ? If you are first time interacting me you can ask what i can say ?")
-    print("\nYou can ask what i can say ?")
+    print("How can i help you ?")
+    speak("This is Zira . How can I help you ?")
 
 
 def takeCommand():
@@ -107,6 +107,12 @@ def feeling_bored():
 
 if __name__ == "__main__":
     wishMe()
+    print("I have 4 different modes for you to work with me.")
+    speak("I have 4 different modes for you to work with me. They are as follows:")
+    print("\t Modes \t\t How to activate ?\n", "\tApp mode (You can open specific apps in this mode.)", "\t\tSay \"open apps\" or \"applications\"\n",
+    "\toffice mode", "\t\tSay \"open office\"\n", "\tWeb mode", "\t\tJust say \"web\"\n", "\tfeelings mode", "\t\tJust say \"feelings\"\n", "To change between the modes you have to first say \"exit\" to exit from the last mode.")
+    time.sleep(5)
+    
     while True:
         query = takeCommand().lower()
 
@@ -129,8 +135,15 @@ if __name__ == "__main__":
                 print(f"Sorry, I am unable to send the mail due to an error",
                        {e})
                 speak("Sorry! I am unable to send the mail due to an error, Try solving the error.")
+
+        elif "whatsapp message" in query or "message":
+            pwk.sendwhatmsg(str(input("Enter the mobile number of the receiver: ")), str(input("Enter the message to be sent : \n")), int(input("Enter the time hour: ")), "\n", int(input("Enter the minutes: ")), "\n", int(input("Enter the wait time (in sec.): ")), "\n", True)
+
+        elif "on youtube" in query or "in youtube" in query: 
+            speak("What to play on youtube ?")
+            pwk.playonyt(takeCommand())
         
-        if "applications" in query or "apps" in query:
+        elif "applications" in query or "apps" in query:
             print("Which app to open ?")
             speak("Which app to open ?")
             while True:
