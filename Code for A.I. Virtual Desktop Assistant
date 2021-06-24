@@ -114,6 +114,22 @@ if __name__ == "__main__":
             print("Hi ! What i can do for you ?")
             speak("Hi ! What i can do for you ?")
 
+        elif 'say' in query or 'ask' in query:
+            print("You can say.......")
+            speak("You can say.....")
+            print("open youtube","\n",
+            "open google","\n",
+            "Send email","\n",
+            "You can also ask for any wikipedia, for ex. India Wikipedia","\n",
+            "print current date and time ?","\n",
+            "What is your name ?","\n",
+            "Play songs or Play music","\n",
+            "Open Powershell","\n",
+            "Print machine information","\n",
+            "Print system properties")
+            speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Or What is your name! Also You can say Play songs or Play music... If you are using powershell you can also say open powershell; For your machine you can say print machine information also you can say print system properties for system information.")
+            time.sleep(3.5)
+
         elif 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
@@ -203,23 +219,6 @@ if __name__ == "__main__":
                 print(f"Sorry, I am unable to send the mail due to an error",
                        {e})
                 speak("Sorry! I am unable to send the mail due to an error, Try solving the error.")
-
-        elif 'say' in query:
-            print("You can say.......")
-            speak("You can say.....")
-            print("open youtube","\n",
-            "open google","\n",
-            "Send email","\n",
-            "You can also ask for any wikipedia, for ex. India Wikipedia","\n",
-            "print current date and time ?","\n",
-            "What is your name ?","\n",
-            "Play songs or Play music","\n",
-            "Open Powershell","\n",
-            "Print machine information","\n",
-            "Print system properties")
-            speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Or What is your name! Also You can say Play songs or Play music... If you are using powershell you can also say open powershell; For your machine you can say print machine information also you can say print system properties for system information.")
-            time.sleep(3.5)
-
         elif 'my name' in query:
             print(f"Your name is {myName}")
             speak(f"Your name is {myName}")
