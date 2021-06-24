@@ -143,6 +143,13 @@ if __name__ == "__main__":
             speak('opening youtube')
             wb.open('https://www.youtube.com/')
 
+        elif 'search' in query or 'web' in query:
+            print("Please tell what to search on web ?")
+            speak("Please tell what to search on web ?")
+            speak("Opening web search")
+            a = takeCommand()
+            pwk.search(a)
+
         elif 'open google' in query:
             print("opening google.com...")
             speak('opening google...')
