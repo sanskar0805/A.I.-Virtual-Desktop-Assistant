@@ -140,8 +140,17 @@ if __name__ == "__main__":
             pwk.sendwhatmsg(str(input("Enter the mobile number of the receiver: ")), str(input("Enter the message to be sent : \n")), int(input("Enter the time hour: ")), "\n", int(input("Enter the minutes: ")), "\n", int(input("Enter the wait time (in sec.): ")), "\n", True)
 
         elif "on youtube" in query or "in youtube" in query: 
-            speak("What to play on youtube ?")
-            pwk.playonyt(takeCommand())
+            if "in" in a:
+                replaced = a.replace("play ", "")
+                replaced2 = replaced.replace(" in ", "")
+                replaced3 = replaced2.replace("youtube", "")
+                print(replaced3)
+
+            elif "on" in a:
+                replaced = a.replace("play ", "")
+                replaced2 = replaced.replace(" on ", "")
+                replaced3 = replaced2.replace("youtube", "")
+                print(replaced3)
         
         elif "applications" in query or "apps" in query:
             print("Which app to open ?")
