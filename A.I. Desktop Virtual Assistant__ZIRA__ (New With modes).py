@@ -144,13 +144,13 @@ if __name__ == "__main__":
                 replaced = a.replace("play ", "")
                 replaced2 = replaced.replace(" in ", "")
                 replaced3 = replaced2.replace("youtube", "")
-                print(replaced3)
+                print(f"In YouTube: {replaced3}")
 
             elif "on" in a:
                 replaced = a.replace("play ", "")
                 replaced2 = replaced.replace(" on ", "")
                 replaced3 = replaced2.replace("youtube", "")
-                print(replaced3)
+                print(f"In YouTube: {replaced3}")
         
         elif "applications" in query or "apps" in query:
             print("Which app to open ?")
