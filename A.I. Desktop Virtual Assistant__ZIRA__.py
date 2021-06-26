@@ -151,17 +151,12 @@ if __name__ == "__main__":
             wb.open('https://www.youtube.com/')
 
         elif "on youtube" in query or "in youtube" in query: 
-            if "in" in a:
-                replaced = a.replace("play ", "")
-                replaced2 = replaced.replace(" in ", "")
-                replaced3 = replaced2.replace("youtube", "")
-                print(replaced3)
-
-            elif "on" in a:
-                replaced = a.replace("play ", "")
-                replaced2 = replaced.replace(" on ", "")
-                replaced3 = replaced2.replace("youtube", "")
-                print(replaced3)
+            replaced = query.replace("play ", "")
+            replaced2 = replaced.replace(" in ", "")
+            replaced2 = replaced.replace(" on ", "")
+            replaced3 = replaced2.replace("youtube", "")
+            print(f"In YouTube: {replaced3}")
+            pwk.playonyt(replaced3)
 
         elif 'search' in query or 'web' in query:
             print("Please tell what to search on web ?")
