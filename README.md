@@ -41,4 +41,7 @@ __Updated on : 25-06-2021__
 Changes : Now ZIRA won't ask "what to open in youtube" again after you have said "open (something) on or in youtube". The "something" is opened in the youtube without taking the whole query. You can say "open (something) on youtube" or "open (something) in youtube". It will take the query as necessary as if the user says "play shape of you song on youtube" the youtube will be opened and only shape of you song is being searched not the whole sentence. 
 New ! : Now you can send whatsapp messages with both the assistants with modes or simple one. You have to just say send message and it will ask you the number, what to write and time in 24 hour format (first hour and then minutes diffs). You can also put the wait time it means that when the time for sending the message the whatsapp will be opened and the message is typed automatically at the given time and in the contact's chat. And if you have put the wait time 5 seconds then it will wait for 5 seconds and then the message will be sent. Remember if the browser isn't in full screen the message won't be sent. 
 
+__Updated on : 26-06-2021__
+Changes: Bug has been fixed in ZIRA. Now you can clearly ask ZIRA to play anything on youtube.
+
 Thank You ! 
