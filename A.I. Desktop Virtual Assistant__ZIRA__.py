@@ -112,8 +112,8 @@ if __name__ == "__main__":
 
         # Logic for executing tasks based on query.
         if "hello" in query:
-            print("Hi ! What i can do for you ?")
-            speak("Hi ! What i can do for you ?")
+            print("Hi ! How can i help you ?")
+            speak("Hi ! How can i help you ?")
 
         elif 'say' in query or 'ask' in query:
             print("You can say.......")
@@ -123,12 +123,10 @@ if __name__ == "__main__":
             "Send email","\n",
             "You can also ask for any wikipedia, for ex. India Wikipedia","\n",
             "print current date and time ?","\n",
-            "What is your name ?","\n",
             "Play songs or Play music","\n",
-            "Open Powershell","\n",
             "Print machine information","\n",
             "Print system properties")
-            speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Or What is your name! Also You can say Play songs or Play music... If you are using powershell you can also say open powershell; For your machine you can say print machine information also you can say print system properties for system information.")
+            speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Also You can say Play songs or Play music... ; For your machine you can say print machine information also you can say print system properties for system information.")
             time.sleep(3.5)
 
         elif 'wikipedia' in query:
@@ -151,23 +149,27 @@ if __name__ == "__main__":
             wb.open('https://www.youtube.com/')
 
         elif "on youtube" in query or "in youtube" in query: 
-            replaced = query.replace("play ", "")
-            replaced2 = replaced.replace(" in ", "")
-            replaced2 = replaced.replace(" on ", "")
-            replaced3 = replaced2.replace("youtube", "")
-            print(f"In YouTube: {replaced3}")
-            pwk.playonyt(replaced3)
+            replace = a.replace("play ", "")
+            replace2 = replace.replace(" in ", "")
+            replace2 = replace.replace(" on ", "")
+            replace3 = replace.replace("youtube", "")
+            print(f"In YouTube :  {replace3}")
+            speak("opening youtube for your video")
+            pwk.playonyt(replace3)
 
         elif 'search' in query or 'web' in query:
-            print("Please tell what to search on web ?")
-            speak("Please tell what to search on web ?")
-            speak("Opening web search")
-            a = takeCommand()
-            pwk.search(a)
+            query.replace("search ", "")
+            query.replace("in google", "")
+            query.replace("on google", "")
+            query.replace("in web", "")
+            query.replace("on web", "")
+            print(f"On web: {query}")
+            speak("On web....")
+            pwk.search(query)
         
         elif 'open google' in query:
-            print("opening google.com...")
-            speak('opening google...')
+            print("opening google on web...")
+            speak('opening google on web...')
             wb.open('https://www.google.com/webhp')
              
         elif 'open stack overflow' in query or 'open stackoverflow' in query:
@@ -242,8 +244,10 @@ if __name__ == "__main__":
                        {e})
                 speak("Sorry! I am unable to send the mail due to an error, Try solving the error.")
 
-        elif "whatsapp message" in query or "message":
-            pwk.sendwhatmsg(str(input("Enter the mobile number of the receiver with country code (+91): ")), str(input("Enter the message to be sent : \n")), int(input("Enter the time hour: ")), int(input("Enter the minutes: ")), int(input("Enter the wait time (2<)")), True)
+        elif "whatsapp message" in query or "message" in query:
+            pwk.sendwhatmsg(str(input("Enter the mobile number of the receiver with country code (+91): ")), 
+            str(input("Enter the message to be sent : \n")), int(input("Enter the time hour: ")), 
+            int(input("Enter the minutes: ")), int(input("Enter the wait time (2<)")), True)
 
         elif 'my name' in query:
             print(f"Your name is {myName}")
