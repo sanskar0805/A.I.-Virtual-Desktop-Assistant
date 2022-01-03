@@ -3,15 +3,7 @@ import speech_recognition as sr
 import datetime
 import wikipedia as wiki
 import webbrowser as wb
-import random
-import os 
-import smtplib
-import platform
-import wmi
-import pyjokes
-import time
-import requests
-import socket
+import random, os, smtplib, platform, wmi, pyjokes, time, requests, socket
 import pywhatkit as pwk
 
 engine = pyttsx3.init('sapi5')
@@ -57,6 +49,7 @@ def takeCommand():
         speak('Recognizing...')
         query = r.recognize_google(audio, language='en-in')
         print(f'User said: {query}\n')
+        query.replace('zira', '')
 
     except Exception as e:
         print(e)
@@ -355,5 +348,4 @@ if __name__ == "__main__":
             exit()
             
         else: 
-            print("Sorry, but for the time being. I am not equipped to do that.")
-            speak("Sorry, but for the time being. I am not equipped to do that.")
+            False
