@@ -13,6 +13,7 @@ import time
 import requests
 import socket
 import pywhatkit as pwk # Check this out in pypi.org
+import pyaudio
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
