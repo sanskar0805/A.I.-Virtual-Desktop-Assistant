@@ -47,4 +47,7 @@ Changes: Bug has been fixed in ZIRA. Now you can clearly ask ZIRA to play anythi
 __Updated on : 31-07-2021__
 Changes: Minor changes have been done. Now Zira won't ask you what to search she will now automatically searchs that you ask for. Some minor bugs have fixed and will build a GUI software just like Cortana or Google Assistant. Please wait for 2022. We will definitely be succeded in our work, and also a new platform with a lots and lots of features will be provided. A new interactive window will be introduced. 
 
+__Updated on : 23-01-2025__
+Changes: Solved the bug of pyaudio issue. added the pyaudio library to the code.!!
+
 Thank You ! 
