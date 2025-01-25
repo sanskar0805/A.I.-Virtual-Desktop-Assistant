@@ -5,6 +5,7 @@ import wikipedia as wiki
 import webbrowser as wb
 import random, os, smtplib, platform, wmi, pyjokes, time, requests, socket
 import pywhatkit as pwk
+import pyaudio
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
