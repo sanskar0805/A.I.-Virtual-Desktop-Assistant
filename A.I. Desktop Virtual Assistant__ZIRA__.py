@@ -93,12 +93,29 @@ def feeling_bored():
         speak(jo)
 
     elif b == "I want music":
-        print('Playing songs on groove music...')
-        speak('Playing songs on groove music...')
-        path = 'D:\\Gaana\\Favourite songs'
-        song = os.listdir(path)
-        rand_No = random.randint(0, 55)
-        os.startfile(os.path.join(path, song[rand_No]))
+        try:
+                time.sleep(1)
+                print("Which song do you want to play?")
+                speak("Which song do you want to play?")
+                q1 = takeCommand().lower()
+                if 'any' in q1:
+                    s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
+                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
+                    random_choice = random.choice(my_list)
+                    print("Playing song on YT....")
+                    speak("Playing song on youtube....")
+                    wb.open_new(random_choice)
+                
+                else:
+                    s2 = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', q1)
+                    print("Playing song on YT.....")
+                    speak("Playing song on youtube .....")
+                    time.sleep(1)
+                    pwk.playonyt(s2)
+
+        except Exception as e: 
+            print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
+            
 
 
 if __name__ == "__main__":
@@ -123,7 +140,8 @@ if __name__ == "__main__":
             "Print machine information","\n",
             "Print system properties")
             speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Also You can say Play songs or Play music... ; For your machine you can say print machine information also you can say print system properties for system information.")
-            time.sleep(3.5)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'wikipedia' in query:
             speak('Searching Wikipedia...')
@@ -143,6 +161,8 @@ if __name__ == "__main__":
             print("opening youtube...")
             speak('opening youtube')
             wb.open('https://www.youtube.com/')
+            print("wait until zira responds...")
+            time.sleep(5)
 
         #used the re module to replace multiple words at a single time by using less lines and codes
         elif "on youtube" in query or "in youtube" in query: 
@@ -150,27 +170,36 @@ if __name__ == "__main__":
             print(f"Playing {yt} on YouTube")
             time.sleep(1)
             pwk.playonyt(yt)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         #used the re module to replace multiple words at a single time by using less lines and codes
         elif 'search' in query or 'web' in query or 'google' in query:
             yt = re.sub(r'\b(search|search on google|on web|in web|on google|in google)\b', '', query)
             speak("On web....")
             pwk.search(query)
+            print("wait until zira responds...")
+            time.sleep(10)
         
         elif 'open google' in query:
             print("opening google on web...")
             speak('opening google on web...')
             wb.open('https://www.google.com/webhp')
+            print("wait until zira responds...")
+            time.sleep(5)
              
         elif 'open stack overflow' in query or 'open stackoverflow' in query:
             print("opening stackoverflow...")
             speak('opening stackoverflow in browser')
             wb.open('https://stackoverflow.com/questions/tagged/python')
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'open gmail' in query:
             print('opening gmail')
             speak('opening gmail')
             wb.open('https://mail.google.com/mail/u/0/#inbox')
+            exit()
 
         elif 'website' in query or 'site' in query:
             speak("Please enter the url of the website here")
@@ -178,7 +207,9 @@ if __name__ == "__main__":
                 a = input("Enter the url of the website (For ex. www.youtube.com): ")
                 speak(f"Opening {a}")
                 wb.open(a)
-                time.sleep(3)
+                print("wait until zira responds...")
+                time.sleep(5)
+                
 
             except Exception as e:
                 print(f"Unable to open the website due to this error {e} \n Please try to solve the error.")
@@ -196,16 +227,25 @@ if __name__ == "__main__":
                     s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
                     my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
                     random_choice = random.choice(my_list)
+                    speak("Hope you'll enjoy the song")
+                    time.sleep(1)
                     print("Playing song on YT....")
                     speak("Playing song on youtube....")
                     wb.open_new(random_choice)
+                    time.sleep(5)
+                    exit()
+                    
                 
                 else:
                     s2 = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', q1)
+                    speak("Hope you'll enjoy the song")
+                    time.sleep(1)
                     print("Playing song on YT.....")
                     speak("Playing song on youtube .....")
                     time.sleep(1)
                     pwk.playonyt(s2)
+                    time.sleep(5)
+                    exit()
 
             except Exception as e:
                 print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
@@ -227,6 +267,8 @@ if __name__ == "__main__":
             speak("Opening PowerShell window (here)...")
             path = '"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"'
             os.startfile(path)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'your name' in query:
             print("Hi! My name is ZIRA. I am your A.I. virtual Desktop Assistant. How can i help you ?")
@@ -262,7 +304,8 @@ if __name__ == "__main__":
             speak("Opening Edge browser....")
             browser_path = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
             os.startfile(browser_path)
-            time.sleep(3)
+            print("wait until zira responds...")
+            time.sleep(5)
         
         elif 'system' in query:
             print("Below are the information about your os...")
@@ -306,7 +349,7 @@ if __name__ == "__main__":
             print(jo)
             speak(jo)
 
-        elif 'bored' in query:
+        elif 'bored' in query or 'boring' in query:
             feeling_bored()
 
         elif 'ip' in query:
@@ -321,35 +364,41 @@ if __name__ == "__main__":
             print('Opening notepad')
             speak('Opening notepad')
             os.system('Notepad')
-            time.sleep(3)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'word' in query:
             print("Opening Microsoft word")
             speak("Opening Microsoft word")
             os.system('start winword')
-            time.sleep(3)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'excel' in query:
             print("Opening Microsoft excel")
             speak("Opening Microsoft excel")
             os.system('start Excel')
-            time.sleep(3)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'powerpoint' in query:
             print("Opening Microsoft powerpoint")
             speak("Opening Microsoft powerpoint")
             os.system('start powerpnt')
-            time.sleep(3)
+            print("wait until zira responds...")
+            time.sleep(5)
 
         elif 'shutdown' in query:
             print('Shutting down this pc...')
             speak('Shutting down this pc...')
+            time.sleep(1)
             os.system("shutdown /s /t 0")
             exit()
 
         elif 'restart' in query:
             print("Restarting this pc...")
             speak("Restarting this pc...")
+            time.sleep(1)
             os.system("shutdown /r /t 0")
             exit()
 
