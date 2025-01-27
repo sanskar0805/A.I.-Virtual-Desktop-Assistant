@@ -1,11 +1,13 @@
 import pyttsx3
-import speech_recognition as sr
+import speech_recognition as sr 
 import datetime
 import wikipedia as wiki
 import webbrowser as wb
 import random, os, smtplib, platform, wmi, pyjokes, time, requests, socket
 import pywhatkit as pwk
-import pyaudio
+import time
+import re
+
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -33,7 +35,7 @@ def wishMe():
         speak(f"Good evening {myName}.")
 
     speak("This is Zira . How can I help you ? If you are first time interacting me you can ask what i can say ?")
-    print("\nYou can ask what i can say ?")
+    print("\nYou can ask 'what i can say' ?")
 
 
 def takeCommand():
@@ -51,7 +53,7 @@ def takeCommand():
         query = r.recognize_google(audio, language='en-in')
         print(f'User said: {query}\n')
         query.replace('zira', '')
-
+        
     except Exception as e:
         print(e)
         print("Sorry Can't recognize you. Can you please say it again.")
@@ -142,22 +144,16 @@ if __name__ == "__main__":
             speak('opening youtube')
             wb.open('https://www.youtube.com/')
 
+        #used the re module to replace multiple words at a single time by using less lines and codes
         elif "on youtube" in query or "in youtube" in query: 
-            replace = a.replace("play ", "")
-            replace2 = replace.replace(" in ", "")
-            replace2 = replace.replace(" on ", "")
-            replace3 = replace.replace("youtube", "")
-            print(f"In YouTube :  {replace3}")
-            speak("opening youtube for your video")
-            pwk.playonyt(replace3)
+            yt = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', query)
+            print(f"Playing {yt} on YouTube")
+            time.sleep(1)
+            pwk.playonyt(yt)
 
-        elif 'search' in query or 'web' in query:
-            query.replace("search ", "")
-            query.replace("in google", "")
-            query.replace("on google", "")
-            query.replace("in web", "")
-            query.replace("on web", "")
-            print(f"On web: {query}")
+        #used the re module to replace multiple words at a single time by using less lines and codes
+        elif 'search' in query or 'web' in query or 'google' in query:
+            yt = re.sub(r'\b(search|search on google|on web|in web|on google|in google)\b', '', query)
             speak("On web....")
             pwk.search(query)
         
@@ -188,18 +184,32 @@ if __name__ == "__main__":
                 print(f"Unable to open the website due to this error {e} \n Please try to solve the error.")
                 speak("Unable to open the website due to the error. Please try to solve the error")
                 continue
-        
-        elif 'play music' and 'play songs' in query or 'song' in query:
+            
+        #Now songs will be played on youtube as per your needs
+        elif 'play music' and 'play songs' in query or 'song' in query or 'play song' in query or 'music' in query:
             try:
-                print('Playing songs on groove music...')
-                speak('Playing songs on groove music...')
-                path = 'D:\\Gaana\\Favourite songs'
-                song = os.listdir(path)
-                rand_No = random.randint(0, 55)
-                os.startfile(os.path.join(path, song[rand_No]))
+                time.sleep(1)
+                print("Which song do you want to play?")
+                speak("Which song do you want to play?")
+                q1 = takeCommand().lower()
+                if 'any' in q1:
+                    s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
+                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=KNXYonYD59w&list=PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw&ab_channel=T-Series", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
+                    random_choice = random.choice(my_list)
+                    print("Playing song on YT....")
+                    speak("Playing song on youtube....")
+                    wb.open_new(random_choice)
+                
+                else:
+                    s2 = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', q1)
+                    print("Playing song on YT.....")
+                    speak("Playing song on youtube .....")
+                    time.sleep(1)
+                    pwk.playonyt(s2)
 
             except Exception as e:
                 print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
+                continue
 
         elif 'date' in query or 'time' in query:
             current_time = datetime.datetime.now().strftime("%A, %d %B, %Y  %H:%M:%S")
@@ -344,8 +354,8 @@ if __name__ == "__main__":
             exit()
 
         elif 'quit' in query or 'exit' in query:
-            print("Thanks for interacting with me. Have a energetic and wonderful day.")
-            speak("Thanks for interacting with me. Have a energetic and wonderful day.")            
+            print("Thanks for interacting with me. Have a good day.")
+            speak("Thanks for interacting with me. Have a good day.")            
             exit()
             
         else: 
