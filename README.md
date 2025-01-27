@@ -50,4 +50,11 @@ Changes: Minor changes have been done. Now Zira won't ask you what to search she
 __Updated on : 23-01-2025__
 Changes: Solved the bug of pyaudio issue. added the pyaudio library to the code.!!
 
+__Updated on : 27-01-2025__
+*Added the re library (pre-installed in python)
+*Removed pyaudio from code (no use)
+*Reduced the number of commands using the *re* library at line no. 149 and 156 instead of continuously replacing words
+**Added the most required feature of playing music* : Now you can ask zira to refresh your mood by playing music... Now the music directly plays on YouTube! and you don't need to have any player the video directly plays on your web browser... 
+*Common fixes and improvements!
+
 Thank You ! 
