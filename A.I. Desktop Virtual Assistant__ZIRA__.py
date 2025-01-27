@@ -404,7 +404,7 @@ if __name__ == "__main__":
             os.system("shutdown /r /t 0")
             exit()
 
-        elif 'quit' in query or 'exit' in query:
+        elif 'quit' in query or 'exit' in query or 'thanks' in query or 'thank you' in query:
             print("Thanks for interacting with me. Have a good day.")
             speak("Thanks for interacting with me. Have a good day.")            
             exit()
