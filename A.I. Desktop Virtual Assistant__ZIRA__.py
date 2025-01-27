@@ -194,7 +194,7 @@ if __name__ == "__main__":
                 q1 = takeCommand().lower()
                 if 'any' in q1:
                     s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
-                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=KNXYonYD59w&list=PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw&ab_channel=T-Series", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
+                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
                     random_choice = random.choice(my_list)
                     print("Playing song on YT....")
                     speak("Playing song on youtube....")
