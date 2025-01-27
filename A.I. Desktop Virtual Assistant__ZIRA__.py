@@ -165,13 +165,15 @@ if __name__ == "__main__":
             time.sleep(5)
 
         #used the re module to replace multiple words at a single time by using less lines and codes
-        elif "on youtube" in query or "in youtube" in query: 
-            yt = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', query)
+        elif "on youtube" in query or "in youtube" in query or 'play' in query: 
+            yt = re.sub(r'\b(youtube|on youtube|in youtube|play)\b', '', query)
             print(f"Playing {yt} on YouTube")
+            print("Thank You for interacting with me... \nHope You'll enjoy it!")
+            speak("Thank You for interacting with me... \nHope You'll enjoy it!")
             time.sleep(1)
             pwk.playonyt(yt)
-            print("wait until zira responds...")
             time.sleep(5)
+            exit()
 
         #used the re module to replace multiple words at a single time by using less lines and codes
         elif 'search' in query or 'web' in query or 'google' in query:
@@ -217,7 +219,7 @@ if __name__ == "__main__":
                 continue
             
         #Now songs will be played on youtube as per your needs
-        elif 'play music' and 'play songs' in query or 'song' in query or 'play song' in query or 'music' in query:
+        elif 'play music' and 'play songs' in query or 'song' in query or 'play song' in query or 'music' in query :
             try:
                 time.sleep(1)
                 print("Which song do you want to play?")
