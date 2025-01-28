@@ -37,7 +37,7 @@ def wishMe():
     speak("This is Zira . How can I help you ? If you are first time interacting me you can ask what i can say ?")
     print("\nYou can ask 'what i can say' ?")
 
-
+#Listening command by AI preparation
 def takeCommand():
     # It takes microphone input from the user and returns string output
 
@@ -61,6 +61,7 @@ def takeCommand():
         return "None"
     return query
 
+#Email writing preparation
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
@@ -82,6 +83,7 @@ def confEmail():
         c = input("Enter what to write in the email: \n")
         sendEmail(to, c)
 
+#feeling bored command preparation
 def feeling_bored():
     speak("Do you want to listen some jokes or some music ?")
     print("say I want some jokes if you want to listen jokes or say I want music for music else say no")
@@ -117,7 +119,7 @@ def feeling_bored():
             print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
             
 
-
+#LOOP starts here... 
 if __name__ == "__main__":
     wishMe()
     while True:
@@ -140,7 +142,7 @@ if __name__ == "__main__":
             "Print machine information","\n",
             "Print system properties")
             speak("open youtube...! Or open google...! Or...Send email; For information You can ask for any wikipedia; ! Or.. print current date and time ?...! Also You can say Play songs or Play music... ; For your machine you can say print machine information also you can say print system properties for system information.")
-            print("wait until zira responds...")
+            print("Responding in 5 seconds.....")
             time.sleep(5)
 
         elif 'wikipedia' in query:
@@ -151,29 +153,12 @@ if __name__ == "__main__":
                 speak("According to wikipedia ")
                 print(results)
                 speak(results)
+                time.sleep(3)
 
             except Exception as e:
                 print(f"Sorry, I am unable to complete wikipedia search  due to this error: {e}\n Please try solving the error.")
                 speak("Sorry, I am unable to complete the wikipedia search due to an error; Please try solving the error.")
                 continue
-
-        elif 'open youtube' in query:
-            print("opening youtube...")
-            speak('opening youtube')
-            wb.open('https://www.youtube.com/')
-            print("wait until zira responds...")
-            time.sleep(5)
-
-        #used the re module to replace multiple words at a single time by using less lines and codes
-        elif "on youtube" in query or "in youtube" in query or 'play' in query: 
-            yt = re.sub(r'\b(youtube|on youtube|in youtube|play)\b', '', query)
-            print(f"Playing {yt} on YouTube")
-            print("Thank You for interacting with me... \nHope You'll enjoy it!")
-            speak("Thank You for interacting with me... \nHope You'll enjoy it!")
-            time.sleep(1)
-            pwk.playonyt(yt)
-            time.sleep(5)
-            exit()
 
         #used the re module to replace multiple words at a single time by using less lines and codes
         elif 'search' in query or 'web' in query or 'google' in query:
@@ -181,27 +166,8 @@ if __name__ == "__main__":
             speak("On web....")
             pwk.search(query)
             print("wait until zira responds...")
-            time.sleep(10)
-        
-        elif 'open google' in query:
-            print("opening google on web...")
-            speak('opening google on web...')
-            wb.open('https://www.google.com/webhp')
-            print("wait until zira responds...")
-            time.sleep(5)
-             
-        elif 'open stack overflow' in query or 'open stackoverflow' in query:
-            print("opening stackoverflow...")
-            speak('opening stackoverflow in browser')
-            wb.open('https://stackoverflow.com/questions/tagged/python')
-            print("wait until zira responds...")
-            time.sleep(5)
-
-        elif 'open gmail' in query:
-            print('opening gmail')
-            speak('opening gmail')
-            wb.open('https://mail.google.com/mail/u/0/#inbox')
-            exit()
+            time.sleep(3)
+            input("Press enter to wake up....")
 
         elif 'website' in query or 'site' in query:
             speak("Please enter the url of the website here")
@@ -211,6 +177,7 @@ if __name__ == "__main__":
                 wb.open(a)
                 print("wait until zira responds...")
                 time.sleep(5)
+                input("Press enter to wake up....")
                 
 
             except Exception as e:
@@ -235,9 +202,8 @@ if __name__ == "__main__":
                     speak("Playing song on youtube....")
                     wb.open_new(random_choice)
                     time.sleep(5)
-                    exit()
+                    input("Press enter to wake up....")
                     
-                
                 else:
                     s2 = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', q1)
                     speak("Hope you'll enjoy the song")
@@ -247,30 +213,25 @@ if __name__ == "__main__":
                     time.sleep(1)
                     pwk.playonyt(s2)
                     time.sleep(5)
-                    exit()
+                    input("Press enter to wake up....")
 
             except Exception as e:
                 print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
                 continue
 
+        #used the re module to replace multiple words at a single time by using less lines and codes
+        elif "on youtube" in query or "in youtube" in query or 'play' in query: 
+            yt = re.sub(r'\b(youtube|on youtube|in youtube|play)\b', '', query)
+            print(f"Playing {yt} on YouTube")
+            speak(f"Playing {yt} on YouTube")
+            pwk.playonyt(yt)
+            time.sleep(5)
+            input("Press enter to wake up....")
+
         elif 'date' in query or 'time' in query:
             current_time = datetime.datetime.now().strftime("%A, %d %B, %Y  %H:%M:%S")
             print(f"Today's day date and time is {current_time}")
             speak(f"Today's day date and time is {current_time}")
-        
-        elif 'visual studio code' in query or 'code' in query:
-            print("Opening visual studio code...")
-            speak("Opening visual studio code...")
-            code_path = "D:\\Installed PROGRAMS\\VS code\\Microsoft VS Code\\Code.exe"
-            os.startfile(code_path)
-        
-        elif 'powershell' in query:
-            print("Opening PowerShell window here...")
-            speak("Opening PowerShell window (here)...")
-            path = '"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"'
-            os.startfile(path)
-            print("wait until zira responds...")
-            time.sleep(5)
 
         elif 'your name' in query:
             print("Hi! My name is ZIRA. I am your A.I. virtual Desktop Assistant. How can i help you ?")
@@ -301,14 +262,6 @@ if __name__ == "__main__":
             print(f"Your name is {myName}")
             speak(f"Your name is {myName}")
 
-        elif 'browser' in query:
-            print("Opening Edge Browser... ")
-            speak("Opening Edge browser....")
-            browser_path = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
-            os.startfile(browser_path)
-            print("wait until zira responds...")
-            time.sleep(5)
-        
         elif 'system' in query:
             print("Below are the information about your os...")
             speak("Below are the information about your operating system..")
@@ -361,35 +314,147 @@ if __name__ == "__main__":
             print(f"Your public ip address is {public_ip} and your device host name is {hostname} with a local ip {local_ip}")
             speak("Your public ip address is..... and your device host name is.... with a local ip....")
             time.sleep(5)
+        
+        #opening web apps
+        elif 'open google' in query:
+            print("opening google on web...")
+            speak('opening google on web...')
+            wb.open('https://www.google.com/webhp')
+            print("wait until zira responds...")
+            time.sleep(5)
+            input("Press enter to wake up....")
+             
+        elif 'open stack overflow' in query or 'open stackoverflow' in query:
+            print("opening stackoverflow...")
+            speak('opening stackoverflow in browser')
+            wb.open('https://stackoverflow.com/questions/tagged/python')
+            print("wait until zira responds...")
+            time.sleep(5)
+            input("Press enter to wake up....")
 
+        elif 'open gmail' in query:
+            print('opening gmail')
+            speak('opening gmail')
+            wb.open('https://mail.google.com/mail/u/0/#inbox')
+            input("Press enter to wake up....")
+
+        elif 'open youtube' in query:
+            print("opening youtube...")
+            speak('opening youtube')
+            wb.open('https://www.youtube.com/')
+            print("wait until zira responds...")
+            time.sleep(5)
+            input("Press enter to wake up....")
+        
+        #opening installed apps 
+        elif 'powershell' in query:
+            print("Opening PowerShell window here...")
+            speak("Opening PowerShell window (here)...")
+            path = '"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"'
+            os.startfile(path)
+            print("wait until zira responds...")
+            time.sleep(5)
+        
+        elif 'visual studio code' in query or 'code' in query:
+            try:
+                print("Opening visual studio code...")
+                speak("Opening visual studio code...")
+                code_path = "D:\\Installed PROGRAMS\\VS code\\Microsoft VS Code\\Code.exe"
+                os.startfile(code_path)
+
+            except Exception as e:
+                print(f"Sorry unable to open due to the following error\n{e}")
+                speak("Sorry unable to open due to the following error")
+                continue
+
+        elif 'browser' in query:
+            print("Opening Edge Browser... ")
+            speak("Opening Edge browser....")
+            browser_path = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+            os.startfile(browser_path)
+            print("wait until zira responds...")
+            time.sleep(5)
+            input("Press enter to wake up....")
+
+        elif 'camera' in query:
+            print("opening camera app...")
+            speak("opening camera app...")
+            os.system('start microsoft.windows.camera:')
+
+        elif 'notepad plus plus' in query:
+            try:
+                print("Opening Notepad++ ....")
+                speak("Opening notepad plus plus")
+                os.system('start notepad++')
+                time.sleep(3)
+                input("Press enter to wake up....")
+
+            except Exception as e:
+                print(f"Unable to open Notepad++ due to the following error\n{e}")
+                speak("Unable to open Notepad++ due to the following error")
+                continue
+        
         elif 'notepad' in query:
             print('Opening notepad')
             speak('Opening notepad')
             os.system('Notepad')
             print("wait until zira responds...")
             time.sleep(5)
+            input("Press enter to wake up....")
 
-        elif 'word' in query:
-            print("Opening Microsoft word")
-            speak("Opening Microsoft word")
-            os.system('start winword')
+        elif 'calculator' in query:
+            print("Opening Calculator..")
+            speak("Opening calculator..")
+            os.system('calc')
             print("wait until zira responds...")
-            time.sleep(5)
+            time.sleep(3)
+            input("Press enter to wake up....")
+
+        #Opening office apps
+        elif 'word' in query:
+            try:
+                print("Opening Microsoft word")
+                speak("Opening Microsoft word")
+                os.system('start winword')
+                print("wait until zira responds...")
+                time.sleep(5)
+                input("Press enter to wake up....")
+            
+            except Exception as e:
+                print(f"Sorry, I am unable to open the app due to the following error\n{e}")
+                speak("Sorry, I am unable to open the app due to the following error")
+                continue
 
         elif 'excel' in query:
-            print("Opening Microsoft excel")
-            speak("Opening Microsoft excel")
-            os.system('start Excel')
-            print("wait until zira responds...")
-            time.sleep(5)
+            try:
+                print("Opening Microsoft excel")
+                speak("Opening Microsoft excel")
+                os.system('start Excel')
+                print("wait until zira responds...")
+                time.sleep(5)
+                input("Press enter to wake up....")
+                
+            except Exception as e:
+                print(f"Sorry, I am unable to open the app due to the following error\n{e}")
+                speak("Sorry, I am unable to open the app due to the following error")
+                continue
+
 
         elif 'powerpoint' in query:
-            print("Opening Microsoft powerpoint")
-            speak("Opening Microsoft powerpoint")
-            os.system('start powerpnt')
-            print("wait until zira responds...")
-            time.sleep(5)
+            try:
+                print("Opening Microsoft powerpoint")
+                speak("Opening Microsoft powerpoint")
+                os.system('start powerpnt')
+                print("wait until zira responds...")
+                time.sleep(5)
+                input("Press enter to wake up....")
+            
+            except Exception as e:
+                print(f"Sorry, I am unable to open the app due to the following error\n{e}")
+                speak("Sorry, I am unable to open the app due to the following error")
+                continue
 
+        #System shutdown
         elif 'shutdown' in query:
             print('Shutting down this pc...')
             speak('Shutting down this pc...')
@@ -397,12 +462,24 @@ if __name__ == "__main__":
             os.system("shutdown /s /t 0")
             exit()
 
+        #System Restart
         elif 'restart' in query:
             print("Restarting this pc...")
             speak("Restarting this pc...")
             time.sleep(1)
             os.system("shutdown /r /t 0")
             exit()
+
+        #feelings 
+        elif 'love you' in query or 'love u':
+            print(f"(❁´◡`❁)\n")
+            time.sleep(1)
+            print(f"I love you too {myName}!\n")
+            time.sleep(1)
+            print("💕")
+            speak(f"I Love you Too {myName}")
+            time.sleep(3)
+            input("Press enter to wake up...")
 
         elif 'quit' in query or 'exit' in query or 'thanks' in query or 'thank you' in query:
             print("Thanks for interacting with me. Have a good day.")
