@@ -67,7 +67,7 @@ __Updated on : 27-01-2025__
 __Updated on : 28-01-2025__
 * Now users can open camera app by saying open camera
 * Now users can open notepad++ (if installed)
-> Note: to open notepad++ try to quickly say notepadd ++ as the AI recognises quickly.
 * improvements and bug fixes.
+> Note: to open notepad++ try to quickly say notepadd ++ as the AI recognises quickly.
 
 Thank You ! 
