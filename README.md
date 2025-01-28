@@ -60,7 +60,7 @@ __Updated on : 27-01-2025__
 * Common fixes and improvements!
   
 | Before | After|
-|--------| -----|
+|-------- | -------|
 |.replace method used to replace the unwanted syntax from user input | re module used to remove the unwanted syntax from user input|
 |AI continues to listen after opening an app | Now AI will pause and need a user enter to again start from where it paused|
 
