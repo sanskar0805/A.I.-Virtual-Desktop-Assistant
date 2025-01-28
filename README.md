@@ -8,7 +8,7 @@ added all the features for opening these applications. You can also send emails 
 which opens a web browser into your current desktop.I have added a feature from which you can ask the wikipedia of any thing, it can be the name of a person, place, kingdoms, 
 history, etc. Just say 'thing' + wikipedia.
 
-In Future i will add feature which search things entered by the user using a search engine. If someone wants to give suggestions for adding more features i am free to contact.
+In Future I will add feature which search things entered by the user using a search engine. 
 
 >__*This A.I. is my first mega project i have created. In future i will also create many games but first i want to work on this Virtual Assistant.*__
 
