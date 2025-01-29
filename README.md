@@ -74,6 +74,8 @@ __Updated on: 29-01-2025__
 * Added the module psutil
 * Now, when you ask for your machine configuratin it will print like this format:
 *Manufacturer, model, PC name, OS, version, machine type(x32, x64, arm 64 etc.), processor, ram*
+* Now you can ask for live cricket score
+* Now you can ask for news (supported in english only currently) (you can also say 'update me')
 * Solve the bug of opening unwanted videos on playing music...
 * solved minor bugs with fixes and improvements
 
