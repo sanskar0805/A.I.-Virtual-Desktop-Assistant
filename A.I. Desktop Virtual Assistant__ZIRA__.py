@@ -103,7 +103,7 @@ def feeling_bored():
                 q1 = takeCommand().lower()
                 if 'any' in q1:
                     s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
-                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
+                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=eN6AYHAT8UM&ab_channel=T-Series"]
                     random_choice = random.choice(my_list)
                     print("Playing song on YT....")
                     speak("Playing song on youtube....")
@@ -161,6 +161,22 @@ if __name__ == "__main__":
                 speak("Sorry, I am unable to complete the wikipedia search due to an error; Please try solving the error.")
                 continue
 
+        elif 'news' in query or 'update me' in query or 'get me up to date' in query:
+            news = ['https://www.timesofindia.indiatimes.com/','https://www.hindustantimes.com/','https://www.indianexpress.com/', 'https://www.msn.com/en-in']
+            random_news = random.choice(news)
+            print("Sending you to the news on web... ")
+            speak("Sending you to the news on web... ")
+            wb.open(random_news)
+            time.sleep(3)
+            input("Enter to wake up.....")
+
+        elif 'what is the score' in query.replace("'", "") or 'whats the score' in query.replace("'", "") or 'whats the match score' in query.replace("'", "") or 'what is the match score' in query.replace("'", "") or 'what is the cricket score' in query.replace("'", "") or 'whats the cricket score' in query.replace("'", "") or 'whats the cricket update' in query.replace("'", ""):
+            print("Live cricket score on web....")
+            speak("Live cricket score on web....")
+            wb.open('https://crex.live/')
+            time.sleep(2)
+            input('\nPress enter to wake up....')
+
         #used the re module to replace multiple words at a single time by using less lines and codes
         elif 'search' in query or 'web' in query or 'google' in query:
             yt = re.sub(r'\b(search|search on google|on web|in web|on google|in google)\b', '', query)
@@ -195,7 +211,7 @@ if __name__ == "__main__":
                 q1 = takeCommand().lower()
                 if 'any' in q1:
                     s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
-                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
+                    my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=Ps4aVpIESkc&list=PL9bw4S5ePsEEqCMJSiYZ-KTtEjzVy0YvK&ab_channel=T-Series", "https://www.youtube.com/watch?v=kXHiIxx2atA&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=GOkJguI8kYc&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=l75z7FrYRXI&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
                     random_choice = random.choice(my_list)
                     speak("Hope you'll enjoy the song")
                     time.sleep(1)
@@ -273,10 +289,15 @@ if __name__ == "__main__":
             speak("Below are the information about your operating system..")
             mysystem = platform.uname()
             print(f"System: {mysystem.system}")
+            time.sleep(1)
             print(f"Node Name: {mysystem.node}")
+            time.sleep(1)
             print(f"Release: {mysystem.release}")
+            time.sleep(1)
             print(f"Version: {mysystem.version}")
+            time.sleep(1)
             print(f"Machine: {mysystem.machine}")
+            time.sleep(1)
             print(f"Processor: {mysystem.processor}")
             time.sleep(5)
             input("Press enter to wake up...")
@@ -306,7 +327,7 @@ if __name__ == "__main__":
             time.sleep(1)
             print("Machine Type : ", system_info.machine)
             time.sleep(1)
-            print("Processor    : ", system_info.processor, f'(clock speed = {psutil.cpu_freq().max/(1000):.2f} GHz)')
+            print("Processor    : ", system_info.processor, f'(clock speed = {psutil.cpu_freq().max/(1000):.2f} GHz)') #2f used to print upto 2 decimal places
             time.sleep(1)
             print(f"Total RAM    :  {psutil.virtual_memory().total/(1024**3):.2f} GB")
             time.sleep(1)
@@ -384,7 +405,20 @@ if __name__ == "__main__":
             wb.open_new_tab('https://web.whatsapp.com/')
             time.sleep(5)
             input("Press enter to wake up...")
-        
+
+        elif 'instagram' in query:
+            print("Opening Instagram on web....")
+            speak("Opening Instagram on web....")
+            wb.open('https://www.instagram.com/')
+            time.sleep(5)
+            input("Press enter to wake up...")
+
+        elif 'facebook' in query:
+            print("Opening facebook on web...")
+            speak("Opening facebook on web...")
+            wb.open('https://www.facebook.com/')
+
+
         #opening installed apps 
         elif 'powershell' in query:
             print("Opening PowerShell window here...")
