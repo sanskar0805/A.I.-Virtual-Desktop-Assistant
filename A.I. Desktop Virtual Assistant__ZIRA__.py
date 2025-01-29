@@ -300,7 +300,7 @@ if __name__ == "__main__":
             time.sleep(1)
             print(f"PC Name      : ", system_info.node)
             time.sleep(1)
-            print(f"OS name      : ", system_info.system, system_info.release)
+            print(f"OS           : ", system_info.system, system_info.release)
             time.sleep(1)
             print("Version      : ", system_info.version)
             time.sleep(1)
