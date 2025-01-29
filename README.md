@@ -70,4 +70,11 @@ __Updated on : 28-01-2025__
 * improvements and bug fixes.
 > Note: to open notepad++ try to quickly say notepadd ++ as the AI recognises quickly.
 
+__Updated on: 29-01-2025__
+* Added the module psutil
+* Now, when you ask for your machine configuratin it will print like this format:
+*Manufacturer, model, PC name, OS, version, machine type(x32, x64, arm 64 etc.), processor, ram*
+* Solve the bug of opening unwanted videos on playing music...
+* solved minor bugs with fixes and improvements
+
 Thank You ! 
