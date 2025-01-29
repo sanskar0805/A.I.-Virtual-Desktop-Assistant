@@ -3,10 +3,11 @@ import speech_recognition as sr
 import datetime
 import wikipedia as wiki
 import webbrowser as wb
-import random, os, smtplib, platform, wmi, pyjokes, time, requests, socket
+import random, os, smtplib, pyjokes, time, requests, socket
 import pywhatkit as pwk
 import time
 import re
+import psutil, platform, wmi
 
 
 engine = pyttsx3.init('sapi5')
@@ -204,7 +205,7 @@ if __name__ == "__main__":
                     time.sleep(5)
                     input("Press enter to wake up....")
                     
-                else:
+                elif 'youtube' in q1:
                     s2 = re.sub(r'\b(youtube|on youtube|in youtube)\b', '', q1)
                     speak("Hope you'll enjoy the song")
                     time.sleep(1)
@@ -214,6 +215,10 @@ if __name__ == "__main__":
                     pwk.playonyt(s2)
                     time.sleep(5)
                     input("Press enter to wake up....")
+                else:
+                    print("Sorry Can't recognize you. Can you please say it again.")
+                    speak("Sorry Can't recognize you. Can you please say it again.")
+                    q1 = takeCommand().lower()
 
             except Exception as e:
                 print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
@@ -232,6 +237,7 @@ if __name__ == "__main__":
             current_time = datetime.datetime.now().strftime("%A, %d %B, %Y  %H:%M:%S")
             print(f"Today's day date and time is {current_time}")
             speak(f"Today's day date and time is {current_time}")
+            input("Press enter to wake up...")
 
         elif 'your name' in query:
             print("Hi! My name is ZIRA. I am your A.I. virtual Desktop Assistant. How can i help you ?")
@@ -273,24 +279,49 @@ if __name__ == "__main__":
             print(f"Machine: {mysystem.machine}")
             print(f"Processor: {mysystem.processor}")
             time.sleep(5)
+            input("Press enter to wake up...")
 
         elif 'machine' in query:
             print("Below are the information about your machine....")
             speak("Below are the information about your machine....")
+            # Get system information
+            system_info = platform.uname()
             c = wmi.WMI()   
             myMachine = c.Win32_ComputerSystem()[0]
-            print(f"Manufacturer: {myMachine.Manufacturer}")
-            print(f"Model: {myMachine. Model}")
-            print(f"Name: {myMachine.Name}")
-            print(f"NumberOfProcessors: {myMachine.NumberOfProcessors}")
-            print(f"SystemFamily: {myMachine.SystemFamily}")
+            # Print the system information
+            # Get system information
+            system_info = platform.uname()
+            c = wmi.WMI()   
+            myMachine = c.Win32_ComputerSystem()[0]
+            # Print the system information
+            print(f"Manufacturer :  {myMachine.Manufacturer}")
+            time.sleep(1)
+            print(f"Model        :  {myMachine. Model}")
+            time.sleep(1)
+            print(f"PC Name      : ", system_info.node)
+            time.sleep(1)
+            print(f"OS name      : ", system_info.system, system_info.release)
+            time.sleep(1)
+            print("Version      : ", system_info.version)
+            time.sleep(1)
+            print("Machine Type : ", system_info.machine)
+            time.sleep(1)
+            print("Processor    : ", system_info.processor, f'(clock speed = {psutil.cpu_freq().max/(1000):.2f} GHz)')
+            time.sleep(1)
+            print(f"Total RAM    :  {psutil.virtual_memory().total/(1024**3):.2f} GB")
+            time.sleep(1)
+            print(f"")
+            time.sleep(2)
+            print("Wait until ZIRA responds...")
             time.sleep(5)
+            speak("Do you want to know anything else...?")
 
-        elif 'thank you' in query:
+        elif 'thank you' in query or 'thank u' in query:
             print("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon...")
             speak("Your most welcome !  You can ask me anything, anytime and anywhere. See you soon...")
-            print("Should I leave ? Say Yes or No.")
-            speak("Should I leave ? Say Yes or No.")
+            time.sleep(3)
+            print("Should I leave ? Yes or No?")
+            speak("Should I leave ? Yes or No?")
             a = takeCommand()
             if a == "yes" or a == "Yes":
                 speak("Ok. See you soon. Bye!")
@@ -307,7 +338,7 @@ if __name__ == "__main__":
         elif 'bored' in query or 'boring' in query:
             feeling_bored()
 
-        elif 'ip' in query:
+        elif 'ip' in query or 'i p' in query:
             public_ip = requests.get("https://api.ipify.org").text
             hostname = socket.gethostname()
             local_ip = socket.gethostbyname(hostname)
@@ -336,15 +367,23 @@ if __name__ == "__main__":
             print('opening gmail')
             speak('opening gmail')
             wb.open('https://mail.google.com/mail/u/0/#inbox')
+            time.sleep(5)
             input("Press enter to wake up....")
 
         elif 'open youtube' in query:
             print("opening youtube...")
             speak('opening youtube')
-            wb.open('https://www.youtube.com/')
+            wb.open_new('https://www.youtube.com/')
             print("wait until zira responds...")
             time.sleep(5)
             input("Press enter to wake up....")
+
+        elif 'whatsapp' in query:
+            print("Opening WhatsApp on web...")
+            speak("Opening WhatsApp on web...")
+            wb.open_new_tab('https://web.whatsapp.com/')
+            time.sleep(5)
+            input("Press enter to wake up...")
         
         #opening installed apps 
         elif 'powershell' in query:
@@ -410,11 +449,18 @@ if __name__ == "__main__":
             time.sleep(3)
             input("Press enter to wake up....")
 
+        elif 'settings' in query:
+            print("Opening settings....")
+            speak("Opening settings....")
+            os.system('start ms-settings:')
+            time.sleep(3)
+            input("Press enter to wake up !")
+
         #Opening office apps
         elif 'word' in query:
             try:
-                print("Opening Microsoft word")
-                speak("Opening Microsoft word")
+                print("Opening MS word")
+                speak("Opening MS word")
                 os.system('start winword')
                 print("wait until zira responds...")
                 time.sleep(5)
@@ -427,8 +473,8 @@ if __name__ == "__main__":
 
         elif 'excel' in query:
             try:
-                print("Opening Microsoft excel")
-                speak("Opening Microsoft excel")
+                print("Opening MS excel")
+                speak("Opening MS excel")
                 os.system('start Excel')
                 print("wait until zira responds...")
                 time.sleep(5)
@@ -442,8 +488,8 @@ if __name__ == "__main__":
 
         elif 'powerpoint' in query:
             try:
-                print("Opening Microsoft powerpoint")
-                speak("Opening Microsoft powerpoint")
+                print("Opening MS powerpoint")
+                speak("Opening MS powerpoint")
                 os.system('start powerpnt')
                 print("wait until zira responds...")
                 time.sleep(5)
@@ -471,20 +517,44 @@ if __name__ == "__main__":
             exit()
 
         #feelings 
-        elif 'love you' in query or 'love u':
-            print(f"(❁´◡`❁)\n")
-            time.sleep(1)
+        elif 'love you' in query or 'love u' in query:
+            print(f"   (❁ ´◡`❁)\n")
+            time.sleep(2)
             print(f"I love you too {myName}!\n")
             time.sleep(1)
-            print("💕")
+            print("      💕")
             speak(f"I Love you Too {myName}")
             time.sleep(3)
             input("Press enter to wake up...")
+
+        elif 'like you' in query or 'like u' in query:
+            print(f"          Oh!\n")
+            speak("Ohhh!\n")
+            time.sleep(2)
+            print("      By the way...\n")
+            speak("By the way")
+            print("I started liking you too!\n")
+            speak(", I started liking you too!")
+            print("          😻")
+            time.sleep(5)
+            input("Press enter to wake up...")
+
+        elif 'whats up' in query:
+            print("I am doing very great !!")
+            speak("I am doing very great !!")
+            time.sleep(1)
+            print("How about you?")
+            speak("How about you?")
 
         elif 'quit' in query or 'exit' in query or 'thanks' in query or 'thank you' in query:
             print("Thanks for interacting with me. Have a good day.")
             speak("Thanks for interacting with me. Have a good day.")            
             exit()
-            
+
+        elif 'open' in query:
+            print("What to open?")
+            speak("What to open?")
+            takeCommand()
+
         else: 
             False
