@@ -54,7 +54,7 @@ __Updated on : 23-01-2025__
 
 __Updated on : 27-01-2025__
 * Added the re library (pre-installed in python)
-* Removed pyaudio from code (no use)
+> Removed pyaudio from code (no use)
 * Reduced the number of commands using the *re* library at line no. 149 and 156 instead of continuously replacing words
 * *Added the most required feature of playing music* : Now you can ask zira to refresh your mood by playing music... Now the music directly plays on YouTube! and you don't need to have any player the video directly plays on your web browser... 
 * Common fixes and improvements!
@@ -74,9 +74,19 @@ __Updated on: 29-01-2025__
 * Added the module psutil
 * Now, when you ask for your machine configuratin it will print like this format:
 *Manufacturer, model, PC name, OS, version, machine type(x32, x64, arm 64 etc.), processor, ram*
-* Now you can ask for live cricket score
-* Now you can ask for news (supported in english only currently) (you can also say 'update me')
+* *New!* Now you can ask for live cricket score
+* *New!* Now you can ask for news (supported in english only currently) (you can also say 'update me')
 * Solve the bug of opening unwanted videos on playing music...
 * solved minor bugs with fixes and improvements
+
+
+__Updated on: 30-01-2025__
+* Fixed the error in which AI doesn't continue after opening notepad and continue only after closing it....
+* *NEW!* Now you can ask for your computers configuration showing your storage and partitions with RAM and also about your battery info.. JUST include 'machine' in your query..
+* *NEW!* Now you can ask her to open 'facebook' or 'instagram'. (it will open on web)
+* *NEW!* Now you can open camera app!
+* *NEW!* You can also ask her to open 'settings'
+* *NEW!* You can have some lovely interactions with her... like 'I love you!' or 'I like you!' also 'what's up!'...
+* Now you can ask her to pause between your conversation... Just say 'pause' or 'stop'.. I she will pause herself until you are asked to reactivate (No need to kill terminal...)
 
 Thank You ! 
