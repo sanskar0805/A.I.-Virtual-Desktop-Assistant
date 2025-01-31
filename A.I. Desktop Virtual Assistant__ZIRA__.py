@@ -156,7 +156,7 @@ if __name__ == "__main__":
             speak('Searching Wikipedia...')
             try:
                 query = query.replace("wikipedia", "")
-                results = wiki.summary(query, sentences=2)
+                results = wiki.summary(query, sentences=3)
                 speak("According to wikipedia ")
                 print(results)
                 speak(results)
@@ -316,7 +316,7 @@ if __name__ == "__main__":
             time.sleep(5)
             input("Press enter to wake up...")
 
-        elif 'machine' in query or 'configuration' in query:
+        elif 'machine' in query or 'configuration' in query :
             print("Below are the information about your machine....")
             speak("Below are the information about your machine....")
             # Get system information
@@ -377,8 +377,12 @@ if __name__ == "__main__":
             
             #Battery status
             battery_info = psutil.sensors_battery()
+
             if battery_info:
-                print(f"Battery Percentage: {battery_info.percent}%, Time left: {'Currently On power' if battery_info.power_plugged else battery_info.secsleft/60:.2f} minutes, Power Plugged In: {'Yes' if battery_info.power_plugged else 'No'}")
+                # Calculate time left in minutes only if the battery is not plugged in
+                time_left = "On power" if battery_info.power_plugged else f"{battery_info.secsleft / 60:.2f} minutes"
+                
+                print(f"Battery Percentage: {battery_info.percent}%, Time left: {time_left}, Power Plugged In: {'Yes' if battery_info.power_plugged else 'No'}")
             else:
                 print("Battery information is unavailable...")
 
@@ -419,7 +423,7 @@ if __name__ == "__main__":
             print("Should I leave ? Yes or No?")
             speak("Should I leave ? Yes or No?")
             a = takeCommand()
-            if a == "yes" or a == "Yes":
+            if 'yes' in a:
                 speak("Ok. See you soon. Bye!")
                 exit()
             else:
@@ -448,7 +452,7 @@ if __name__ == "__main__":
             speak('opening google on web...')
             wb.open('https://www.google.com/webhp')
             print("wait until zira responds...")
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up....")
              
         elif 'open stack overflow' in query or 'open stackoverflow' in query:
@@ -456,14 +460,14 @@ if __name__ == "__main__":
             speak('opening stackoverflow in browser')
             wb.open('https://stackoverflow.com/questions/tagged/python')
             print("wait until zira responds...")
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up....")
 
         elif 'open gmail' in query:
             print('opening Gmail')
             speak('opening gmail')
             wb.open('https://mail.google.com/mail/u/0/#inbox')
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up....")
 
         elif 'open youtube' in query:
@@ -471,21 +475,21 @@ if __name__ == "__main__":
             speak('opening youtube')
             wb.open_new('https://www.youtube.com/')
             print("wait until zira responds...")
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up....")
 
         elif 'whatsapp' in query:
             print("Opening WhatsApp on web...")
             speak("Opening WhatsApp on web...")
             wb.open_new_tab('https://web.whatsapp.com/')
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up...")
 
         elif 'instagram' in query:
             print("Opening Instagram on web....")
             speak("Opening Insta on web....")
             wb.open('https://www.instagram.com/')
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up...")
 
         elif 'facebook' in query:
@@ -503,7 +507,7 @@ if __name__ == "__main__":
             path = '"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"'
             os.startfile(path)
             print("wait until zira responds...")
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up!..")
         
         elif 'visual studio code' in query or 'code' in query:
@@ -518,19 +522,33 @@ if __name__ == "__main__":
                 speak("Sorry unable to open due to the following error")
                 continue
 
-        elif 'browser' in query:
+        elif 'browser' in query or 'edge' in query:
             print("Opening Edge Browser... ")
             speak("Opening Edge browser....")
             browser_path = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
             os.startfile(browser_path)
             print("wait until zira responds...")
-            time.sleep(5)
+            time.sleep(3)
             input("Press enter to wake up....")
+
+        elif 'chrome' in query:
+            try:
+                print("Opening Chrome Browser....")
+                speak("Opening Chrome Browser....")
+                os.system('start chrome')
+                print("wait until zira responds...")
+                time.sleep(3)
+                input("Press enter to wake up....")
+
+            except Exception as e:
+                print(f"Sorry unable to open the app due to error {e}")
+                speak("Sorry unable to open the app")
 
         elif 'camera' in query:
             print("opening camera app...")
             speak("opening camera app...")
             os.system('start microsoft.windows.camera:')
+            print("wait until zira responds...")
             time.sleep(3)
             input("Press enter to wake up...")
 
@@ -541,7 +559,6 @@ if __name__ == "__main__":
                 os.system('start notepad++')
                 time.sleep(3)
                 input("Press enter to wake up....")
-
             except Exception as e:
                 print(f"Unable to open Notepad++ due to the following error\n{e}")
                 speak("Unable to open Notepad++ due to the following error")
@@ -577,6 +594,13 @@ if __name__ == "__main__":
             print("Sorry I am not equipped to do that... ")
             speak("Sorry I am not equipped to do that... ")
 
+        elif 'explorer' in query:
+            print("Opening file explorer.....")
+            speak("Opening file explorer.....")
+            os.system('start explorer')
+            print("wait until zira responds...")
+            time.sleep(3)
+            input("Press enter to wake up...")
 
         #Opening office apps
         elif 'word' in query:
@@ -722,7 +746,8 @@ if __name__ == "__main__":
 
         elif 'quit' in query or 'exit' in query or 'thanks' in query or 'thank you' in query:
             print("Thanks for interacting with me. Have a good day!")
-            speak("Thanks for interacting with me. Have a good day!")            
+            speak("Thanks for interacting with me. Have a good day!")   
+            time.sleep(2)        
             exit()
         
         elif 'pause' in query or 'stop' in query:
@@ -735,6 +760,7 @@ if __name__ == "__main__":
             print("What to open?")
             speak("What to open?")
             takeCommand()
+
 
         else: 
             False
