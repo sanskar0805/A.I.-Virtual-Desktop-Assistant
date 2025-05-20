@@ -89,4 +89,8 @@ __Updated on: 30-01-2025__
 * *NEW!* You can have some lovely interactions with her... like 'I love you!' or 'I like you!' also 'what's up!'...
 * Now you can ask her to pause between your conversation... Just say 'pause' or 'stop'.. I she will pause herself until you are asked to reactivate (No need to kill terminal...)
 
+__Updated on: 20-05-2025__
+* Now you can open command prompt through *__ZIRA__*. Just say 'Open Command Prompt' or 'open cmd'.
+* cosmetic changes (code related) Ex. now if you want to open notepad ++ when the ai print your query or the lines you have said it will show 'Notepad ++' instead of 'Notepad plus plus'.
+
 Thank You ! 
