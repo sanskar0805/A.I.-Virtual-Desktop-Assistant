@@ -135,7 +135,7 @@ if __name__ == "__main__":
 
         # Logic for executing tasks based on query.
         if "hello" in query:
-            print(emoji.emojize("       Hi !:waving_hand:  \nHow can i help you ?"))
+            print(emoji.emojize("       Hi !:waving_hand:  \n\nHow can i help you ?"))
             speak("Hi ! How can i help you ?")
 
         elif 'say' in query or 'ask' in query:
