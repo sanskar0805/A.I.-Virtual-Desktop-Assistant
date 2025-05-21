@@ -92,5 +92,5 @@ __Updated on: 30-01-2025__
 __Updated on: 20-05-2025__
 * Now you can open command prompt through *__ZIRA__*. Just say 'Open Command Prompt' or 'open cmd'.
 * cosmetic changes (code related) Ex. now if you want to open notepad ++ when the ai print your query or the lines you have said it will show 'Notepad ++' instead of 'Notepad plus plus'.
-
+* Use of 'emoji module'
 Thank You ! 
