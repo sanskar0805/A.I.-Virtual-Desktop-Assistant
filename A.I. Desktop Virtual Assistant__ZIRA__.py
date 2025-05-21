@@ -8,6 +8,7 @@ import pywhatkit as pwk
 import time
 import re
 import psutil, platform, wmi
+import emoji
 
 
 engine = pyttsx3.init('sapi5')
@@ -52,7 +53,7 @@ def takeCommand():
         print("Recognizing...")
         speak('Recognizing...')
         query = r.recognize_google(audio, language='en-in')
-        print(f'User said: {query}\n')
+        print(f'User said: {query.replace('plus', '+')}\n')
         query.replace('zira', '')
         
     except Exception as e:
@@ -88,14 +89,14 @@ def confEmail():
 def feeling_bored():
     speak("Do you want to listen some jokes or some music ?")
     print("say I want some jokes if you want to listen jokes or say I want music for music else say no")
-    b = takeCommand()
-    if b == "I want jokes":
+    b = takeCommand().lower()
+    if 'i want a joke' in b or 'i want some joke' in b or 'i want some jokes' in b or 'i want the joke' in b or 'i want the jokes' in b:
         speak("Here is the joke that i found ?")
         jo = pyjokes.get_joke(language='en', category='all')
         print(jo)
         speak(jo)
 
-    elif b == "I want music" or "I want a music" or "I want a song" or "I want a song":
+    elif "i want music" in b or "i want a music" in b or "i want a song" in b or "i want a song" in b or 'i want some music' in b or 'i want some song' in b:
         try:
                 time.sleep(1)
                 print("Which song do you want to play?")
@@ -122,7 +123,7 @@ def feeling_bored():
             print(f"Sorry ! {myName}, I am unable to play songs due to the following error\n{e}")
     
     else:
-        takeCommand()
+        b = takeCommand().lower()
 
 
 
@@ -134,7 +135,7 @@ if __name__ == "__main__":
 
         # Logic for executing tasks based on query.
         if "hello" in query:
-            print("Hi ! How can i help you ?")
+            print(emoji.emojize("       Hi !:waving_hand:  \nHow can i help you ?"))
             speak("Hi ! How can i help you ?")
 
         elif 'say' in query or 'ask' in query:
@@ -218,6 +219,7 @@ if __name__ == "__main__":
                 speak("Which song do you want to play?")
                 q1 = takeCommand().lower()
                 if 'any' in q1:
+                    # we use the re module to replace the words by blank...
                     s1 = re.sub(r'\b(on youtube|in youtube| on web|)\b', '', q1)
                     my_list = ["https://www.youtube.com/watch?v=kJQP7kiw5Fk&list=PL15B1E77BB5708555", "https://www.youtube.com/watch?v=U0ZoqmyGJo8&ab_channel=MelodyChillMix", "https://www.youtube.com/watch?v=nFgsBxw-zWQ&list=PLO7-VO1D0_6NmK47v6tpOcxurcxdW-hZa", "https://www.youtube.com/watch?v=ugeRr5HbsU4&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=Ps4aVpIESkc&list=PL9bw4S5ePsEEqCMJSiYZ-KTtEjzVy0YvK&ab_channel=T-Series", "https://www.youtube.com/watch?v=kXHiIxx2atA&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=GOkJguI8kYc&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D", "https://www.youtube.com/watch?v=l75z7FrYRXI&pp=ygUNc29uZyBwbGF5bGlzdA%3D%3D"]
                     random_choice = random.choice(my_list)
@@ -509,7 +511,17 @@ if __name__ == "__main__":
             print("wait until zira responds...")
             time.sleep(3)
             input("Press enter to wake up!..")
-        
+
+        elif 'command prompt' in query or 'cmd' in query:
+            print("Opening command prompt...")
+            speak("Opening command prompt...")
+            path = '"C:\\Windows\\System32\\cmd.exe"'
+            os.startfile(path)
+            print("wait until zira responds...")
+            time.sleep(3)
+            input("Press enter to wake up...")
+
+
         elif 'visual studio code' in query or 'code' in query:
             try:
                 print("Opening visual studio code...")
@@ -533,6 +545,7 @@ if __name__ == "__main__":
 
         elif 'chrome' in query:
             try:
+                # trying if chrome is installed
                 print("Opening Chrome Browser....")
                 speak("Opening Chrome Browser....")
                 os.system('start chrome')
@@ -554,6 +567,7 @@ if __name__ == "__main__":
 
         elif 'notepad plus plus' in query:
             try:
+                # trying if notepad ++ is installed
                 print("Opening Notepad++ ....")
                 speak("Opening notepad plus plus")
                 os.system('start notepad++')
@@ -566,6 +580,7 @@ if __name__ == "__main__":
         
         elif 'notepad' in query:
             try:
+                # trying if notepad is available or not in windows
                 print('Opening notepad')
                 speak('Opening notepad')
                 os.system('start Notepad')
@@ -602,9 +617,14 @@ if __name__ == "__main__":
             time.sleep(3)
             input("Press enter to wake up...")
 
+        elif 'phone link' in query:
+            print("Sorry but for the time being, I am unable to do that...")
+            speak("Sorry but for the time being, I am unable to do that...")
+
         #Opening office apps
         elif 'word' in query:
             try:
+                # will try if office is installed or not...
                 print("Opening MS word")
                 speak("Opening MS word")
                 os.system('start winword')
@@ -645,6 +665,7 @@ if __name__ == "__main__":
                 print(f"Sorry, I am unable to open the app due to the following error\n{e}")
                 speak("Sorry, I am unable to open the app due to the following error")
                 continue
+            
 
         #System shutdown
         elif 'shutdown' in query:
@@ -740,6 +761,11 @@ if __name__ == "__main__":
                     print(jo)
                     speak(jo)
                     time.sleep(2)
+
+            elif 'good' in l or 'great' in l or 'fine' in l or 'awesome' in l:
+                print("That's great to hear from you!")
+                speak("That's great to hear from you!")
+                time.sleep(1)
 
             else:
                 takeCommand()
