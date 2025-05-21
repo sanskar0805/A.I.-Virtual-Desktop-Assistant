@@ -3,14 +3,14 @@ __My First A.I. Desktop Virtual Assistant ---ZIRA---__
 
 ## INTRODUCTION
 __This A.I. Virtual desktop assistant name is ZIRA__. This assistant is created using python which includes all the things needed in this assistant for a simple life. For instance I am
-a coder and i always open google, youtube, powershell window, visual studio code and always listen to music sometimes i also need to configure my laptops and desktops so i have 
+a coder and I always open google, youtube, powershell window, visual studio code and always listen to music sometimes I also need to configure my laptops and desktops so i have 
 added all the features for opening these applications. You can also send emails to any person securely without anyone to see your id or password. I have also added the feature 
-which opens a web browser into your current desktop.I have added a feature from which you can ask the wikipedia of any thing, it can be the name of a person, place, kingdoms, 
+which opens a web browser into your current desktop. I have added a feature from which you can ask the wikipedia of any thing, it can be the name of a person, place, kingdoms, 
 history, etc. Just say 'thing' + wikipedia.
 
 In Future I will add feature which search things entered by the user using a search engine. 
 
->__*This A.I. is my first mega project i have created. In future i will also create many games but first i want to work on this Virtual Assistant.*__
+>__*This A.I. is my first mega project I have created. In future I will also create many games but first I want to work on this Virtual Assistant.*__
 
 ## *Updates*
 __Updated on :  25-05-21__
